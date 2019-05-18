@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+	
+	
+		<action name="subjectAdd" class="org.xkj.action.SubjectAddAction">
+			<!-- 重定向到试题添加页面 -->
+			<result name="success" type="chain">subjectManage_queryAll</result>
+			<!-- 请求转发到试题添加页面 -->
+			<result name="input">/teacher/subjectAdd.jsp</result>
+		</action>
+		
+		<action name="subjectManage_*" class="org.xkj.action.SubjectManageAction" method="{1}">
+			<result name="subjectManage">/teacher/subjectManage.jsp</result>
+			<result name="subjectShow">/teacher/subjectShow.jsp</result>
+			<result name="subjectUpdate">/teacher/subjectUpdate.jsp</result>
+			<result name="deleteSubject" type="chain">subjectManage_queryAll</result>
+		</action>
+		
+		<action name="subjectUpdate" class="org.xkj.action.SubjectUpdateAction">
+			<result name="success" type="chain">
+				<param name="actionName">subjectManage_queryAll</param>
+			</result>
+		</action>
+		
+		<action name="querySubject" class="org.xkj.action.QuerySubjectAction">
+			<result name="success">/teacher/queryResult.jsp</result>
+		</action>
+		
+		<action name="findSubjectByTypeID" class="org.xkj.action.FindSubjectByTypeIDAction">
+			<result name="success">/teacher/subjectManage.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="queryStudentsByName"	class="org.xkj.action.QueryStudentsByNameAction">
+			<result name="success">/teacher/showStudent.jsp</result>
+		</action>
+		
+		<action name="queryStudentsBySclass" class="org.xkj.action.QueryStudentsBySclassAction">
+			<result name="success">/teacher/showStudents.jsp</result>
+		</action>
+		
+		<action name="login" class="org.xkj.action.LoginAction">
+			<result name="studentSuccess" type="redirect">/student/welcome.jsp</result>
+			<result name="teacherSuccess" type="redirect">/teacher/index.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		
+		<action name="getRandomSubjects" class="org.xkj.action.GetRandomSubjectsAction">
+			<result name="success" type="redirect">/student/index.jsp</result>
+		</action>
+		
+		<action name="submitExam" class="org.xkj.action.SubmitExamAction">
+			<result name="success" type="redirect">/student/examResult.jsp</result>
+		</action>
+		
+		<action name="quitExam"	class="org.xkj.action.QuitExamAction">
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="addType" class="org.xkj.action.AddTypeAction">
+			<result name="success">/teacher/addType.jsp</result>
+			<result name="input">/teacher/addType.jsp</result>
+		</action>
+		
+		<action name="queryAllType" class="org.xkj.action.QueryAllTypeAction">
+			<result name="success">/teacher/manageType.jsp</result>
+		</action>
+		
+		<action name="deleteType" class="org.xkj.action.DeleteTypeAction">
+			<result name="success" type="chain">queryAllType</result>
+			<result name="input" type="chain">queryAllType</result>
+		</action>
+		
+		<action name="updateType" class="org.xkj.action.UpdateTypeAction">
+			<result name="updateType">/teacher/updateType.jsp</result>
+			<result name="success" type="chain">queryAllType</result>
+			<result name="input" type="chain">queryAllType</result>
+		</action>
+	</package>
+</struts>

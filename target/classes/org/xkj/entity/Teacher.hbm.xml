@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- name为当前映射文件指定对应的持久类名
+	table为当前映射文件指定对应的数据库表名 -->
+	<class name="org.xkj.entity.Teacher" table="tb_teacher">
+	
+		<!-- id元素用来定义主键标识，并指定主键生成策略 -->
+		<!-- name指定当前映射对应的持久类的主键名
+		type指定对应数据库表中的主键的数据类型 -->
+		<id name="teacherID" type="string">
+			<!-- generator指定Hibernate向数据库插入数据时主键的生成方式 
+			assigned：应用程序自身对id赋值 -->
+			<generator class="assigned"></generator>
+		</id>
+		
+		<!-- property用于持久化类的属性与数据库表字段之间的映射 -->
+		<!-- name:持久化类的属性名，以小写字母开头 -->
+		<property name="password" column="password"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.xkj.entity.Subject" table="tb_subject">
+		<id name="subjectID" column="subjectID" type="int">
+			<!-- identity采用数据库提供的主键生成机制
+			比如自增主键生成机制。 -->
+			<generator class="identity"></generator>
+		</id>
+		<property name="subjectTitle" column="subjectTitle"></property>
+		<property name="subjectOptionA" column="subjectOptionA"></property>
+		<property name="subjectOptionB" column="subjectOptionB"></property>
+		<property name="subjectOptionC" column="subjectOptionC"></property>
+		<property name="subjectOptionD" column="subjectOptionD"></property>
+		<property name="subjectAnswer" column="subjectAnswer"></property>
+		<property name="subjectParse" column="subjectParse"></property>
+		<property name="typeID" column="typeID"></property>
+	</class>
+</hibernate-mapping>

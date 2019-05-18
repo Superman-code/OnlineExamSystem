@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.xkj.entity.Student" table="tb_student">
+		<id name="studentID" column="studentID" type="string">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="password" column="password"></property>
+		<property name="studentName" column="studentName"></property>
+		<property name="result" column="result"></property>
+		<property name="sclass" column="sclass"></property>
+	</class>
+</hibernate-mapping>
